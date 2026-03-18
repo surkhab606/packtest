@@ -125,28 +125,37 @@ void pickPack() {
 
 //-------------------------------------OPEN COMMON PACK -----------------------------------------------
 void openCommonPack() { 
-    
-
+    int card_Picked = randomCard(commonCards.size()); 
+    std::cout << "You found a COMMON pack." << '\n';
+    std::cout << "You opened a " << commonCards[card_Picked] << " card!" << '\n';
 }
 
 //-------------------------------------OPEN UNCOMMON PACK ---------------------------------------------
 void openUncommonPack() { 
-    
+    int card_Picked = randomCard(uncommonCards.size()); 
+    std::cout << "You found a UNCOMMON pack." << '\n';
+    std::cout << "You opened a " << uncommonCards[card_Picked] << " card!" << '\n';
 }
 
 //-------------------------------------OPEN RARE PACK -------------------------------------------------
 void openRarePack() { 
-    
+    int card_Picked = randomCard(rareCards.size()); 
+    std::cout << "You found a RARE pack!" << '\n';
+    std::cout << "You opened a " << rareCards[card_Picked] << " card!" << '\n';
 }
 
 //-------------------------------------OPEN LEGENDARY PACK --------------------------------------------
 void openLegendaryPack() { 
-    
+    int card_Picked = randomCard(legendaryCards.size()); 
+    std::cout << "CONGRATULATIONS! You found a LEGENDARY pack!" << '\n';
+    std::cout << "You opened a " << legendaryCards[card_Picked] << " card!" << '\n';
 }
 
 //-------------------------------------OPEN MYTHIC PACK -----------------------------------------------
 void openMythicPack() { 
-    
+    int card_Picked = randomCard(mythicalCards.size()); 
+    std::cout << "YOU FOUND A MYTHICAL PACK!" << '\n';
+    std::cout << "You opened a " << mythicalCards[card_Picked] << " card!" << '\n';
 }
 
 
@@ -156,7 +165,7 @@ void openMythicPack() {
 //-------------------------------------MAIN------------------------------------------------------------
 int main() { 
     int userSelection; 
-    std::cout << "Would you like to open a pack? 1 for YES. 2 for NO." << '\n'; 
+    std::cout << "While exploring, you found a pack. Would you like to open  it? 1 for YES. 2 for NO." << '\n'; 
     std::cin >> userSelection; 
     if (userSelection == 1) {
         pickPack(); 
