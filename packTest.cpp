@@ -78,10 +78,28 @@ int randomRarity() {
     return rarityIndex; 
 }
 
+//-------------------------------------RANDOM CARD-----------------------------------------------
+int randomCard(int size_of_array) { 
+    //**RANDOM NUMBER BIAS CODE TAKEN FROM GEMINI NOT MY CODE
+
+    // 1. Set up the random engine
+    std::random_device rd;
+    std::mt19937 generator(rd());
+
+    // 3. Create the distribution
+    std::uniform_int_distribution<std::size_t> distribution(0, size_of_array); 
+
+    // 4. Generate a biased index
+    std::size_t randomCardIndex = distribution(generator);
+
+    return randomCardIndex; 
+}
+
+
 //-----------------------------OPEN PACK, RETURN RESULT----------------------------------------------
 void pickPack() { 
     
-    int randomGenIdext = randomRarity(); 
+    int randomGenIndex = randomRarity(); 
 
 
     if (randomGenIndex == 0) {
