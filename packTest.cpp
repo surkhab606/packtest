@@ -57,8 +57,8 @@ std::vector<std::string> mythicalCards = {
     "Mew EX", "Charizard EX", "Pikachu EX", "Deoxys EX", "Arceus EX"
 };
     
-//-------------------------------------RANDOM INDEX---------------------------------------------------
-int randomIndex() { 
+//-------------------------------------RANDOM RARITY-----------------------------------------------
+int randomRarity() { 
     //**RANDOM NUMBER BIAS CODE TAKEN FROM GEMINI NOT MY CODE
 
     // 1. Set up the random engine
@@ -81,22 +81,22 @@ int randomIndex() {
 //-----------------------------OPEN PACK, RETURN RESULT----------------------------------------------
 void pickPack() { 
     
-    int randomGen = randomIndex(); 
+    int randomGenIdext = randomRarity(); 
 
 
-    if (randomGen == 0) {
+    if (randomGenIndex == 0) {
         openCommonPack();
     }
 
-    else if (randomGen == 1) { 
+    else if (randomGenIndex == 1) { 
         openUncommonPack(); 
     }
 
-    else if (randomGen == 2) { 
+    else if (randomGenIndex == 2) { 
         openRarePack(); 
     }
 
-    else if (randomGen == 3) { 
+    else if (randomGenIndex == 3) { 
         openLegendaryPack(); 
     }
 
@@ -107,6 +107,7 @@ void pickPack() {
 
 //-------------------------------------OPEN COMMON PACK -----------------------------------------------
 void openCommonPack() { 
+
 
 }
 
