@@ -55,7 +55,7 @@ std::vector<std::string> legendaryCards = {
 
 // Mythical Cards (5) - The rarest of the rare, all EX
 std::vector<std::string> mythicalCards = {
-    "Mew EX", "Charizard EX", "Pikachu EX", "Deoxys EX", "Arceus EX"
+    "Zekrom EX", "Reshiram EX", "Pikachu EX", "Deoxys EX", "Arceus EX"
 };
     
 //-------------------------------------RANDOM RARITY-----------------------------------------------
