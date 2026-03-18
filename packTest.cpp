@@ -78,25 +78,69 @@ int randomIndex() {
     return rarityIndex; 
 }
 
-//-------------------------------------OPEN PACK---------------------------------------------------
-void openPack() { 
-    
-
+//-----------------------------OPEN PACK, RETURN RESULT----------------------------------------------
+void pickPack() { 
     
     int randomGen = randomIndex(); 
-    
 
 
-    std::cout << "Here are the results: "; 
+    if (randomGen == 0) {
+        openCommonPack();
+    }
+
+    else if (randomGen == 1) { 
+        openUncommonPack(); 
+    }
+
+    else if (randomGen == 2) { 
+        openRarePack(); 
+    }
+
+    else if (randomGen == 3) { 
+        openLegendaryPack(); 
+    }
+
+    else { 
+        openMythicPack(); 
+    }
 }
 
-//-------------------------------------MAIN---------------------------------------------------
+//-------------------------------------OPEN COMMON PACK -----------------------------------------------
+void openCommonPack() { 
+
+}
+
+//-------------------------------------OPEN UNCOMMON PACK ---------------------------------------------
+void openUncommonPack() { 
+    
+}
+
+//-------------------------------------OPEN RARE PACK -------------------------------------------------
+void openRarePack() { 
+    
+}
+
+//-------------------------------------OPEN LEGENDARY PACK --------------------------------------------
+void openLegendaryPack() { 
+    
+}
+
+//-------------------------------------OPEN MYTHIC PACK -----------------------------------------------
+void openMythicPack() { 
+    
+}
+
+
+
+
+
+//-------------------------------------MAIN------------------------------------------------------------
 int main() { 
     int userSelection; 
     std::cout << "Would you like to open a pack? 1 for YES. 2 for NO." << '\n'; 
     std::cin >> userSelection; 
     if (userSelection == 1) {
-        openPack(); 
+        pickPack(); 
     }
 
     return 0; 
