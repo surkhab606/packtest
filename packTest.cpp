@@ -67,7 +67,7 @@ int randomRarity() {
 
     // 2. Define your weights (these don't have to add up to 100)
     // Index 0: Common, 1: Uncommon, 2: Rare, 3: Legendary, 4: Mythical
-    std::vector<double> weights = {70.0, 20.0, 7.0, 2.5, 0.5};
+    std::vector<double> weights = {50.0, 25.0, 15.0, 9.5, 0.5};
 
     // 3. Create the distribution
     std::discrete_distribution<int> dist(weights.begin(), weights.end());
@@ -95,33 +95,6 @@ int randomCard(int size_of_array) {
     return randomCardIndex; 
 }
 
-
-//-----------------------------OPEN PACK, RETURN RESULT----------------------------------------------
-void pickPack() { 
-    
-    int randomGenIndex = randomRarity(); 
-
-
-    if (randomGenIndex == 0) {
-        openCommonPack();
-    }
-
-    else if (randomGenIndex == 1) { 
-        openUncommonPack(); 
-    }
-
-    else if (randomGenIndex == 2) { 
-        openRarePack(); 
-    }
-
-    else if (randomGenIndex == 3) { 
-        openLegendaryPack(); 
-    }
-
-    else { 
-        openMythicPack(); 
-    }
-}
 
 //-------------------------------------OPEN COMMON PACK -----------------------------------------------
 void openCommonPack() { 
@@ -159,7 +132,32 @@ void openMythicPack() {
 }
 
 
+//-----------------------------OPEN PACK, RETURN RESULT----------------------------------------------
+void pickPack() { 
+    
+    int randomGenIndex = randomRarity(); 
 
+
+    if (randomGenIndex == 0) {
+        openCommonPack();
+    }
+
+    else if (randomGenIndex == 1) { 
+        openUncommonPack(); 
+    }
+
+    else if (randomGenIndex == 2) { 
+        openRarePack(); 
+    }
+
+    else if (randomGenIndex == 3) { 
+        openLegendaryPack(); 
+    }
+
+    else { 
+        openMythicPack(); 
+    }
+}
 
 
 //-------------------------------------MAIN------------------------------------------------------------
@@ -167,6 +165,7 @@ int main() {
     int userSelection; 
     std::cout << "While exploring, you found a pack. Would you like to open  it? 1 for YES. 2 for NO." << '\n'; 
     std::cin >> userSelection; 
+    
     if (userSelection == 1) {
         pickPack(); 
     }
