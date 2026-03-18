@@ -166,7 +166,7 @@ int main() {
     int userSelection; 
     std::cout << "While exploring, you found a pack. Would you like to open  it? 1 for YES. 2 for NO." << '\n'; 
     std::cin >> userSelection; 
-    while (userSelection !=  2) {
+    while (userSelection ==  1) {
             pickPack(); 
             std::cout << "While exploring, you found a pack. Would you like to open  it? 1 for YES. 2 for NO." << '\n'; 
             std::cin >> userSelection;  
