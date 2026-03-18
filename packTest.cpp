@@ -4,11 +4,6 @@
 #include <random> 
 
 //-------------------------------------PLANNING---------------------------------------------------
-//BASIC PLAN: 
-        //CARDS MARKED 'MYTHICAL' HAVE 99% CHANCE OF NOT SHOWING UP. -> HOW?
-        //ONE SOLUTION: VECTOR OF COMMON CARDS, MYTHICAL, ETC. BIAS APPLIED TO VECTOR SELECTION 
-        //MAYBE FURTHER SELECTION TO SPECIFIC CARDS? (ONE OR TWO)
-
 //TO-DO:
     //PERSISTING COLLECTION OF CARDS
     //MORE CARDS IN PACK
@@ -97,80 +92,57 @@ int randomCard(int size_of_array) {
 }
 
 
-//-------------------------------------OPEN COMMON PACK -----------------------------------------------
-void openCommonPack() { 
-    int card_Picked = randomCard(commonCards.size()); 
-    std::cout << "You found a COMMON pack." << '\n';
-    std::cout << "You opened a " << commonCards[card_Picked] << " card!" << '\n';
-}
-
-//-------------------------------------OPEN UNCOMMON PACK ---------------------------------------------
-void openUncommonPack() { 
-    int card_Picked = randomCard(uncommonCards.size()); 
-    std::cout << "You found a UNCOMMON pack." << '\n';
-    std::cout << "You opened a " << uncommonCards[card_Picked] << " card!" << '\n';
-}
-
-//-------------------------------------OPEN RARE PACK -------------------------------------------------
-void openRarePack() { 
-    int card_Picked = randomCard(rareCards.size()); 
-    std::cout << "You found a RARE pack!" << '\n';
-    std::cout << "You opened a " << rareCards[card_Picked] << " card!" << '\n';
-}
-
-//-------------------------------------OPEN LEGENDARY PACK --------------------------------------------
-void openLegendaryPack() { 
-    int card_Picked = randomCard(legendaryCards.size()); 
-    std::cout << "CONGRATULATIONS! You found a LEGENDARY pack!" << '\n';
-    std::cout << "You opened a " << legendaryCards[card_Picked] << " card!" << '\n';
-}
-
-//-------------------------------------OPEN MYTHIC PACK -----------------------------------------------
-void openMythicPack() { 
-    int card_Picked = randomCard(mythicalCards.size()); 
-    std::cout << "YOU FOUND A MYTHICAL PACK!" << '\n';
-    std::cout << "You opened a " << mythicalCards[card_Picked] << " card!" << '\n';
-}
-
 
 //-----------------------------OPEN PACK, RETURN RESULT----------------------------------------------
-void pickPack() { 
+void openPack() { 
     
-    int randomGenIndex = randomRarity(); 
+    int cardCounter = 0; 
 
-
-    if (randomGenIndex == 0) {
-        openCommonPack();
-    }
-
-    else if (randomGenIndex == 1) { 
-        openUncommonPack(); 
-    }
-
-    else if (randomGenIndex == 2) { 
-        openRarePack(); 
-    }
-
-    else if (randomGenIndex == 3) { 
-        openLegendaryPack(); 
-    }
-
-    else { 
-        openMythicPack(); 
+    
+    while (cardCounter != 10) { 
+        int randomGenIndex = randomRarity(); 
+        cardCounter += 1;
+        std::cout << "You got... " << '\n';
+        if (randomGenIndex == 0) {
+            int cardIndex = randomCard(commonCards.size()); 
+            std::cout << "Common: " << commonCards[cardIndex] << '\n'; 
+            
+        }
+    
+        else if (randomGenIndex == 1) { 
+            int cardIndex = randomCard(uncommonCards.size()); 
+            std::cout << "Uncommon: " << uncommonCards[cardIndex] << '\n'; 
+        }
+    
+        else if (randomGenIndex == 2) { 
+            int cardIndex = randomCard(rareCards.size()); 
+            std::cout << "Rare: " << rareCards[cardIndex] << '\n'; 
+        }
+    
+        else if (randomGenIndex == 3) {
+            int cardIndex = randomCard(legendaryCards.size()); 
+            std::cout << "LEGENDARY: " << legendaryCards[cardIndex] << '\n';  
+        }
+    
+        else { 
+            int cardIndex = randomCard(mythicalCards.size()); 
+            std::cout << "MYTHICAL: " mythicalCards[cardIndex] << '\n';  
+        }
     }
 }
 
 
-//-------------------------------------MAIN------------------------------------------------------------
+//-----------------------------------------------MAIN---------------------------------------------------
 int main() { 
     int userSelection; 
     std::cout << "While exploring, you found a pack. Would you like to open  it? 1 for YES. 2 for NO." << '\n'; 
     std::cin >> userSelection; 
     while (userSelection ==  1) {
-            pickPack(); 
+            openPack(); 
             std::cout << "While exploring, you found a pack. Would you like to open  it? 1 for YES. 2 for NO." << '\n'; 
             std::cin >> userSelection;  
         }
 
     return 0; 
 }
+//------------------------------------------------------------------------------------------------------
