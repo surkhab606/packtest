@@ -83,7 +83,7 @@ int randomCard(int size_of_array) {
     std::mt19937 generator(rd());
 
     // 3. Create the distribution
-    std::uniform_int_distribution<std::size_t> distribution(0, size_of_array); 
+    std::uniform_int_distribution<std::size_t> distribution(0, size_of_array - 1); 
 
     // 4. Generate a biased index
     std::size_t randomCardIndex = distribution(generator);
@@ -97,12 +97,13 @@ int randomCard(int size_of_array) {
 void openPack() { 
     
     int cardCounter = 0; 
-
+    std::cout << '\n';
+    std::cout << "You got... " << '\n';
     
     while (cardCounter != 10) { 
         int randomGenIndex = randomRarity(); 
         cardCounter += 1;
-        std::cout << "You got... " << '\n';
+
         if (randomGenIndex == 0) {
             int cardIndex = randomCard(commonCards.size()); 
             std::cout << "Common: " << commonCards[cardIndex] << '\n'; 
@@ -126,7 +127,7 @@ void openPack() {
     
         else { 
             int cardIndex = randomCard(mythicalCards.size()); 
-            std::cout << "MYTHICAL: " mythicalCards[cardIndex] << '\n';  
+            std::cout << "MYTHICAL: " << mythicalCards[cardIndex] << '\n';  
         }
     }
 }
